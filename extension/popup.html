@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Audio-to-Text Recorder</title>
+  <style>
+    /* Một giao diện đơn giản, nhỏ gọn */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: sans-serif;
+      background: linear-gradient(135deg, #e09, #d0e);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .container {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      width: 320px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease;
+    }
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .icon { width: 24px; height: 24px; }
+    button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-bottom: 10px;
+      transition: all 0.3s ease, transform 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    button:active { transform: scale(0.98); }
+    #startBtn {
+      background: linear-gradient(45deg, #1de9b6, #1dc4e9);
+      color: #fff;
+    }
+    #startBtn:hover {
+      background: linear-gradient(45deg, #17c1a4, #16a0c8);
+    }
+    #stopBtn {
+      background: linear-gradient(45deg, #ff5252, #ff1744);
+      color: #fff;
+    }
+    #stopBtn:hover {
+      background: linear-gradient(45deg, #e04343, #e01030);
+    }
+    #status { margin-top: 10px; font-size: 0.9rem; color: #555; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>
+      <!-- Icon Microphone (SVG inline) -->
+      <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="#ffeb3b" viewBox="0 0 24 24">
+        <path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z"></path>
+        <path d="M19 11a1 1 0 0 0-2 0 5 5 0 0 1-10 0 1 1 0 0 0-2 0 7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11z"></path>
+      </svg>
+      Audio-to-Text Recorder
+    </h1>
+    <button id="startBtn">
+      <!-- Icon Play (SVG inline) -->
+      <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z"></path>
+      </svg>
+      Start Recording
+    </button>
+    <button id="stopBtn">
+      <!-- Icon Stop (SVG inline) -->
+      <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24">
+        <path d="M6 6h12v12H6z"></path>
+      </svg>
+      Stop Recording
+    </button>
+    <div id="status">Status: Idle</div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
